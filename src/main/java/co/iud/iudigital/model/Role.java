@@ -1,28 +1,39 @@
 package co.iud.iudigital.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
-public class Rol implements Serializable {
+public class Role implements Serializable {
 
-	private static final long serialVersionUID = 7054249435026857198L;
-	// id INT NOT NULL AUTO_INCREMENT,
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2928234787085757170L;
+
+	// id INT NOT NULL AUTO_INCREMENT
+	@Id // PRIMARY KEY(id)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	// nombre VARHCAR(45) NOT NULL,
+
+	// nombre VARCHAR(45) NOT NULL
 	@Column(name = "nombre", length = 45, nullable = false)
 	private String nombre;
-	// descripcion TEXT NOT NULL,
+
+	// descripcion TEXT NULL
 	private String descripcion;
+
+	@ManyToMany(mappedBy = "roles")
+	private List<Usuario> usuarios;
 
 	public Long getId() {
 		return id;
@@ -46,6 +57,14 @@ public class Rol implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 }
