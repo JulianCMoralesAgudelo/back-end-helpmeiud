@@ -10,13 +10,14 @@ import co.iud.iudigital.repository.IRoleRepository;
 import co.iud.iudigital.service.IRoleService;
 
 @Service
-public class RoleServiceImpl implements IRoleService {
+public class RoleServiceImpl implements IRoleService{
 
 	@Autowired // inyección de dependencias
 	private IRoleRepository roleRepository;
-
+	
 	@Override
 	public List<Role> getAll() {
 		return roleRepository.findAll();
 	}
+
 }

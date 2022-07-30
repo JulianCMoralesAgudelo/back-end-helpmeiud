@@ -16,13 +16,14 @@ import co.iud.iudigital.util.Helper;
 public class DelitoServiceImpl implements IDelitoService {
 
 	@Autowired
-	private IDelitoRepository delitoRepository;
-
+	private IDelitoRepository delitoRepository;	
+	
 	@Transactional(readOnly = true)
 	@Override
 	public List<DelitoDTO> findAll() {
 		List<Delito> delitos = delitoRepository.findAll();
-		List<DelitoDTO> delitosDTO = Helper.convertListDelitoDTO(delitos);
+		List<DelitoDTO> delitosDTO = 
+				Helper.convertListDelitoDTO(delitos);
 		return delitosDTO;
 	}
 
@@ -39,8 +40,6 @@ public class DelitoServiceImpl implements IDelitoService {
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-
+		// TODO Auto-generated method stub		
 	}
-
 }
