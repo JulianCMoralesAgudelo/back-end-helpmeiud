@@ -3,9 +3,9 @@ package co.iud.iudigital.dto;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class CasoDTO implements Serializable {
+public class CasoDTO implements Serializable{
 
-	/**
+    /**
 	 * 
 	 */
 	private static final long serialVersionUID = -4779886773654447822L;
@@ -19,20 +19,22 @@ public class CasoDTO implements Serializable {
 	private Float longitud;
 
 	private Float altitud;
-
+  
 	private Boolean visible;
-
+  
 	private String descripcion;
 
 	private String urlMap;
-
+	
 	private String rmiUrl;
 
 	private Long usuarioId;
-
+	
 	private String nombre;
-
+	
 	private String image;
+	
+	private Long delitoId;
 
 	public Long getId() {
 		return id;
@@ -130,4 +132,12 @@ public class CasoDTO implements Serializable {
 		this.image = image;
 	}
 
+	public Long getDelitoId() {
+		return delitoId;
+	}
+
+	public void setDelitoId(Long delitoId) {
+		this.delitoId = delitoId;
+	}	
+	
 }

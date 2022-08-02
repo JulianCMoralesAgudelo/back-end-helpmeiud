@@ -8,5 +8,4 @@ import co.iud.iudigital.model.Role;
 @Repository
 public interface IRoleRepository 
 	extends JpaRepository<Role, Long>{
-
 }

@@ -6,12 +6,12 @@ import co.iud.iudigital.dto.DelitoDTO;
 
 public interface IDelitoService {
 
-	// el nombre de los métodos puede ser "cualquier"
+	//el nombre de los métodos puede ser "cualquier"
 	List<DelitoDTO> findAll();
-
+	
 	DelitoDTO findById(Long id);
-
+	
 	DelitoDTO save(DelitoDTO delitoDTO);
-
+	
 	void delete(Long id);
 }

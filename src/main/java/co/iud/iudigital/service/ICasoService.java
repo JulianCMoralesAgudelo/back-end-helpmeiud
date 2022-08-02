@@ -8,14 +8,14 @@ import co.iud.iudigital.exception.RestException;
 public interface ICasoService {
 
 	// consulta todos los casos
-	List<CasoDTO> findAll() throws RestException;
-
+	List<CasoDTO> findAll() throws RestException ;
+	
 	// crear un caso
-	CasoDTO save(CasoDTO caso) throws RestException;
-
+	CasoDTO save(CasoDTO caso) throws RestException ;
+	
 	// inactivar el caso
 	Boolean visible(Boolean visible, Long id);
 
 	// consultar caso por Id
-	CasoDTO findById(Long id) throws RestException;
+	CasoDTO findById(Long id) throws RestException ;
 }

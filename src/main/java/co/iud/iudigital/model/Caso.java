@@ -18,39 +18,38 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "casos")
 public class Caso implements Serializable {
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7509375994430053778L;
 
-	// id INT NOT NULL AUTO_INCREMENT,
-	// PRIMARY KEY(id)
+	//id INT NOT NULL AUTO_INCREMENT,
+	//PRIMARY KEY(id)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	// fecha_hora DATETIME NULL DEFAULT now(),
+    	private Long id;
+    
+	//fecha_hora DATETIME NULL DEFAULT now(),
 	@Column(name = "fecha_hora")
 	private LocalDateTime fechaHora;
-
-	// latitud FLOAT NULL,
+    
+	//latitud FLOAT NULL,
 	private Float latitud;
-
-	// longitud FLOAT NULL,
+    
+	//longitud FLOAT NULL,
 	private Float longitud;
-
-	// altitud FLOAT NULL,
+    
+	//altitud FLOAT NULL,
 	private Float altitud;
-
-	// visible TINYINT NULL DEFAULT 1,
+    
+	//visible TINYINT NULL DEFAULT 1,
 	private Boolean visible;
-
-	// descripcion VARCHAR(200) NULL,
+   
+	//descripcion VARCHAR(200) NULL,
 	@Column(name = "descripcion", length = 200)
 	private String descripcion;
-
-	// url_map TEXT NULL,
+	
+	//url_map TEXT NULL,
 	@Column(name = "url_map")
 	private String urlMap;
 
@@ -59,23 +58,23 @@ public class Caso implements Serializable {
 	private String rmiUrl;
 
 	// usuarios_id INT NOT NULL,
-	// FOREIGN KEY (usuarios_id) REFERENCES usuarios(id),
+	//FOREIGN KEY (usuarios_id) REFERENCES usuarios(id),
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuarios_id")
 	private Usuario usuario;
-
-	// delitos_id INT NOT NULL,
-	// FOREIGN KEY (delitos_id) REFERENCES delitos(id)
+	
+    	//delitos_id INT NOT NULL,
+    	//FOREIGN KEY (delitos_id) REFERENCES delitos(id)
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "delitos_id")
 	private Delito delito;
-
+	
 	@PrePersist
 	public void init() {
-		if (Objects.isNull(fechaHora)) {// fechaHora==null
+		if(Objects.isNull(fechaHora)) {//fechaHora==null
 			fechaHora = LocalDateTime.now();
 		}
-		if (Objects.isNull(visible)) {
+		if(Objects.isNull(visible)) {
 			visible = true;
 		}
 	}
@@ -167,5 +166,4 @@ public class Caso implements Serializable {
 	public void setDelito(Delito delito) {
 		this.delito = delito;
 	}
-
 }

@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-public class DelitoDTO implements Serializable {
-
+public class DelitoDTO implements Serializable{	
 	/**
 	 * 
 	 */
@@ -13,7 +12,7 @@ public class DelitoDTO implements Serializable {
 
 	private Long id;
 
-	@NotNull(message = "Nombre es obligatorio")
+	@NotNull(message = "Nombre es obligatorio") 
 	private String nombre;
 
 	private String descripcion;
